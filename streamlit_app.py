@@ -46,7 +46,7 @@ if st.session_state.disable :
             2. Your conversations will be shared with model authors.
 
             ''')
-        st.write('GitHub 👉 [ravishe8](https://github.com/ravishe8?tab=repositories)')
+        st.write('🖊️ [ravishe8](https://github.com/ravishe8?tab=repositories)')
 
 # initializing query resolution page; setting prompt; displaying response
 else :
