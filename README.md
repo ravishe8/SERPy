@@ -1,4 +1,4 @@
-# SERPy🐍
+# 🐍 SERPy
 _Enter your Hugging Face account details to login_ 
 
 **SERPy** tries to parse user queries from natural language to **S**QL, **E**xcel, **R** and **Py**thon.
