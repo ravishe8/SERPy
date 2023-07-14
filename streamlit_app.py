@@ -1,12 +1,10 @@
 # importing libraries mentioned in requirement.txt
 import streamlit as st
-from streamlit_extras.colored_header import colored_header
-from streamlit_extras.add_vertical_space import add_vertical_space
 from hugchat import hugchat
 from hugchat.login import Login
 
 # initializing streamlit; setting page title
-st.set_page_config(page_title="SERPy")
+st.set_page_config(page_title="🐍 SERPy")
 
 # session_state variables declaration
 if 'disable' not in st.session_state:
@@ -17,16 +15,14 @@ if 'chatbot' not in st.session_state:
 # initializing login page; includes login form and sidebar; initializing chatbot
 if st.session_state.disable :
     with st.form(key="Login_form"):
-        st.markdown('''## SERPy🐍''')
-        colored_header(label='', description='', color_name='red-70')
+        st.markdown('''## 🐍 SERPy''')
         hf_email = st.text_input("Email: ",placeholder="Email ID", label_visibility="collapsed")
         hf_pass = st.text_input("Password: ",type='password', placeholder='Password', label_visibility="collapsed")
         submitted = st.form_submit_button("Login")
         if submitted:
             with st.spinner(text="Logging in..."):
                 sign = Login(hf_email, hf_pass)
-                cookies = sign.login()
-                sign.saveCookies()
+                cookies = sign.login() 
                 chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
                 st.session_state.chatbot = chatbot
                 st.session_state.disable = False
@@ -50,8 +46,7 @@ if st.session_state.disable :
             2. Your conversations will be shared with model authors.
 
             ''')
-        add_vertical_space(5) 
-        st.write('Made with ♥️  by [ravishe8](https://github.com/ravishe8?tab=repositories)')
+        st.write('GitHub 👉 [ravishe8](https://github.com/ravishe8?tab=repositories)')
 
 # initializing query resolution page; setting prompt; displaying response
 else :
@@ -65,7 +60,6 @@ else :
         display_text = st.text_input("Query: ", "", placeholder="Enter your query", label_visibility="collapsed", key="input", on_change=submit)        
         user_input = st.session_state.query
         if user_input :
-            colored_header(label='', description='', color_name='red-70')
             st.write("*"+user_input+"*")
 # setting prompt; integrating user input in prompt
             prompt = f"""You are an expert on data analytics.
