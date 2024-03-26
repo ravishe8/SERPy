@@ -76,5 +76,5 @@ else :
                          """
             response = st.session_state.chatbot.chat(prompt)
             if response :
-                st.write(response)
+                st.markdown(response)
 # end 86
